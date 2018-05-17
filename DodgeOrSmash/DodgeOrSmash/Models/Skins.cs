@@ -40,5 +40,6 @@ namespace DodgeOrSmash.Models
 
         // especificar relacionamentos
         public ICollection<Purchase> Purchase { get; set; }
+        public ICollection<Inventory> Inventory { get; set; }
     }
 }

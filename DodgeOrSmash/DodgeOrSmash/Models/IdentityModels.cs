@@ -35,6 +35,7 @@ namespace DodgeOrSmash.Models
         public virtual DbSet<ScoreBoard> ScoreBoard { get; set; }
         public virtual DbSet<Skins> Skins { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Inventory> Inventory { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

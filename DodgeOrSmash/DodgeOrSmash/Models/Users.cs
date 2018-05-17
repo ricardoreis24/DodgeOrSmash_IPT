@@ -20,15 +20,16 @@ namespace DodgeOrSmash.Models
 
         [Required]
 
+        public string Name { get; set; }
+
         public decimal Wallet { get; set; }
 
         public float Score { get; set; }
 
-        public int ActiveSkin { get; set; }
-
-        public string Inventory { get; set; }
+        public string ActiveSkin { get; set; }
 
         public virtual ICollection<ScoreBoard>ListaDeScores { get; set; }
         public virtual ICollection<Purchase>ListaDeCompras { get; set; }
+        public virtual ICollection<Inventory>ListaDeInventario { get; set; }
     }
 }
