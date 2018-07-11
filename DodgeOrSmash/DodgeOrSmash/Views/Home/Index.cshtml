@@ -1,31 +1,81 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@*@{
+		ViewBag.Title = "Home Page";
+	}
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+	<div class="jumbotron">
+		<h1>ASP.NET</h1>
+		<p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+		<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+	</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h2>Getting started</h2>
+			<p>
+				ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+				enables a clean separation of concerns and gives you full control over markup
+				for enjoyable, agile development.
+			</p>
+			<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+		</div>
+		<div class="col-md-4">
+			<h2>Get more libraries</h2>
+			<p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+			<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+		</div>
+		<div class="col-md-4">
+			<h2>Web Hosting</h2>
+			<p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+			<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+		</div>
+	</div>*@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Neucha|Cabin+Sketch">
+	<link rel="stylesheet" href="/assets/fonts/simple-line-icons.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+	<link rel="stylesheet" href="/assets/css/Navigation-with-Button.css">
+	<link rel="stylesheet" href="/assets/css/Navigation-with-Search.css">
+	<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body>
+	<script src="/assets/js/dodgeOrSmash.js"></script>
+	<script>
+	</script>
+	<script src="/assets/js/jquery.min.js"></script>
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bs-animation.js"></script>
+	<script src="/assets/js/dodgeOrSmash.js"></script>
+	<script>
+		var aJogo = null;
+		var imss = [{ image: 'imagens/bonus/chorico.png', bonusHit: 500, bonusJump: 100, prob: 2 / 10 }, { image: 'imagens/profs/queiroz.png', bonusHit: 0, bonusJump: 100, prob: 7 / 10 }, { image: 'imagens/profs/casimiro.png', bonusHit: 0, bonusJump: 100, prob: 7 / 10 }, { image: 'imagens/profs/luisAlmeida.png', bonusHit: 0, bonusJump: 100, prob: 7 / 10 }, { image: 'imagens/profs/luisOliveira.png', bonusHit: 0, bonusJump: 100, prob: 7 / 10 },{ image: 'imagens/profs/ramos.png', bonusHit: 0, bonusJump: 100, prob: 7 / 10 }];
+
+		function doPlay(){
+			if(aJogo != null)return;
+		    aJogo = new dodgeOrSmash("imagens/alunos/plaka.png",imss, 700, 800, 60,"#FFFFFF");
+			document.getElementById("contentor").innerHTML="";
+			document.getElementById("contentor").appendChild(aJogo.getCanvas());
+			aJogo.start();
+			aJogo.addEventListener("gameend", gameend);
+
+		}
+
+		function gameend(pontos) {
+			alert(aJogo.getScore());
+			aJogo=null;
+		}
+	</script>
+</body>
+
+</html>

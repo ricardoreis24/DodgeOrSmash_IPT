@@ -1,44 +1,38 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - Dodge Or Smash</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+<body style="padding: 0"; !important>
+<section id="main" style="width:100%;height:100vh;">
+	<nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+		<div class="container">
+			<a class="navbar-brand" href="#">DODGE OR SMASH</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+			<div class="collapse navbar-collapse"
+			     id="navcol-1">
+				<ul class="nav navbar-nav ml-auto">
+					<li class="nav-item" role="presentation"><a class="nav-link" href="javascript: doPlay();">PLAY</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="#">ABOUT</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="#">SHOP</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="#">FORUM</a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link" href="#">SIGN UP</a></li>
+					<li class="nav-item" role="presentation">@Html.ActionLink("Log in", "Login", "Account")</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="d-flex justify-content-center align-items-center align-content-center" id="contentor">
+		@RenderBody()
+	</div>
+</section>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", false)
 </body>
 </html>
